@@ -19,5 +19,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-annotations
           filter_mode: nofilter
-          fail_level: 
+          fail_level: any
           config_file: .github/.linkspector.yml
