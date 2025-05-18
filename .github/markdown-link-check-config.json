@@ -28,9 +28,16 @@
   ],
   "httpHeaders": [
     {
-      "urls": ["https://github.com/", "https://raw.githubusercontent.com/"],
+      "urls": ["https://github.com/"],
       "headers": {
-        "Accept": "application/vnd.github.v3+json",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "User-Agent": "GitHub-Link-Checker"
+      }
+    },
+    {
+      "urls": ["https://raw.githubusercontent.com/"],
+      "headers": {
+        "Accept": "*/*",
         "User-Agent": "GitHub-Link-Checker"
       }
     }
