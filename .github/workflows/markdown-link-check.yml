@@ -1,20 +1,22 @@
-name: Check Markdown links
+name: Check Markdown Links
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - '**.md'
+      - '**/*.md'
 
 jobs:
-  markdown-link-check:
-    runs-on: ubuntu-latest
+  check-links:
+    name: Linkspector / Reviewdog
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v3
-      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+      - uses: actions/checkout@v4
+      - name: Run Linkspector
+        uses: umbrelladocs/action-linkspector@v1
         with:
-          use-quiet-mode: 'no'
-          use-verbose-mode: 'yes'
-          config-file: '.github/markdown-link-check-config.json'
-          folder-path: '.'
-          max-depth: -1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-annotations
+          filter_mode: nofilter
+          fail_level: any
+          config_file: .github/.linkspector.yml

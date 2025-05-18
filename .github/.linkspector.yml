@@ -1,0 +1,18 @@
+# ファイル探索対象を指定（'dirs' または 'files' のいずれか必須）
+dirs:
+  - .
+
+# .gitignore のルールを尊重する
+useGitIgnore: true
+
+# 無視する URL パターン
+ignorePatterns:
+  - pattern: '^#'
+  - pattern: '^https://x.com/'
+    # reason: 'X.com は GitHub Actions からの自動リクエストをブロックします'
+  - pattern: '^https://www.meti.go.jp/.*\.pdf$'
+    # reason: '経産省の PDF リンクは CI 環境でタイムアウトしやすいため'
+  - pattern: '^https://www.jftc.go.jp/'
+    # reason: '公正取引委員会のリンクは CI 環境で 403 を返すことがあります'
+  - pattern: '^%20https://'
+    # reason: '先頭にスペースがある不正な URL'
