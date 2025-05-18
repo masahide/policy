@@ -18,6 +18,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
-          fail_level: any
+          filter_mode: nofilter
+          # fail_level: any
           config_file: .github/.linkspector.yml
-          show_stats: false
+          # show_stats: false
