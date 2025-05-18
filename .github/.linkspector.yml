@@ -1,4 +1,12 @@
-ignore_patterns:
+# ファイル探索対象を指定（'dirs' または 'files' のいずれか必須）
+dirs:
+  - .
+
+# .gitignore のルールを尊重する
+useGitIgnore: true
+
+# 無視する URL パターン
+ignorePatterns:
   - pattern: '^#'
   - pattern: '^https://x.com/'
     reason: 'X.com は GitHub Actions からの自動リクエストをブロックします'
@@ -9,19 +17,7 @@ ignore_patterns:
   - pattern: '^%20https://'
     reason: '先頭にスペースがある不正な URL'
 
-replacement_patterns:
+# 置換パターン
+replacementPatterns:
   - pattern: '^/'
     replacement: '{{BASEURL}}/'
-
-http_headers:
-  - urls:
-      - 'https://github.com/'
-      - 'https://raw.githubusercontent.com/'
-    headers:
-      Accept: 'text/html'
-      User-Agent: 'GitHub-Link-Checker'
-
-timeout: 10s
-retry_on_429: true
-retry_count: 3
-fallback_retry_delay: 30s
