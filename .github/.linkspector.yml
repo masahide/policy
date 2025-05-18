@@ -16,8 +16,3 @@ ignorePatterns:
     # reason: '公正取引委員会のリンクは CI 環境で 403 を返すことがあります'
   - pattern: '^%20https://'
     # reason: '先頭にスペースがある不正な URL'
-
-# 置換パターン
-#replacementPatterns:
-#  - pattern: '^/'
-#    replacement: '{{BASEURL}}/'
