@@ -9,13 +9,13 @@ useGitIgnore: true
 ignorePatterns:
   - pattern: '^#'
   - pattern: '^https://x.com/'
-    reason: 'X.com は GitHub Actions からの自動リクエストをブロックします'
+    # reason: 'X.com は GitHub Actions からの自動リクエストをブロックします'
   - pattern: '^https://www.meti.go.jp/.*\.pdf$'
-    reason: '経産省の PDF リンクは CI 環境でタイムアウトしやすいため'
+    # reason: '経産省の PDF リンクは CI 環境でタイムアウトしやすいため'
   - pattern: '^https://www.jftc.go.jp/'
-    reason: '公正取引委員会のリンクは CI 環境で 403 を返すことがあります'
+    # reason: '公正取引委員会のリンクは CI 環境で 403 を返すことがあります'
   - pattern: '^%20https://'
-    reason: '先頭にスペースがある不正な URL'
+    # reason: '先頭にスペースがある不正な URL'
 
 # 置換パターン
 replacementPatterns:
