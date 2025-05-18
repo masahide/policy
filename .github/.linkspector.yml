@@ -1,0 +1,27 @@
+ignore_patterns:
+  - pattern: '^#'
+  - pattern: '^https://x.com/'
+    reason: 'X.com は GitHub Actions からの自動リクエストをブロックします'
+  - pattern: '^https://www.meti.go.jp/.*\.pdf$'
+    reason: '経産省の PDF リンクは CI 環境でタイムアウトしやすいため'
+  - pattern: '^https://www.jftc.go.jp/'
+    reason: '公正取引委員会のリンクは CI 環境で 403 を返すことがあります'
+  - pattern: '^%20https://'
+    reason: '先頭にスペースがある不正な URL'
+
+replacement_patterns:
+  - pattern: '^/'
+    replacement: '{{BASEURL}}/'
+
+http_headers:
+  - urls:
+      - 'https://github.com/'
+      - 'https://raw.githubusercontent.com/'
+    headers:
+      Accept: 'text/html'
+      User-Agent: 'GitHub-Link-Checker'
+
+timeout: 10s
+retry_on_429: true
+retry_count: 3
+fallback_retry_delay: 30s
