@@ -3,6 +3,8 @@ dirs:
 
 useGitIgnore: true
 
+modifiedFilesOnly : true
+
 ignorePatterns:
   - pattern: '^#'
 
