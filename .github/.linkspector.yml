@@ -18,6 +18,6 @@ ignorePatterns:
     # reason: '先頭にスペースがある不正な URL'
 
 # 置換パターン
-replacementPatterns:
-  - pattern: '^/'
-    replacement: '{{BASEURL}}/'
+#replacementPatterns:
+#  - pattern: '^/'
+#    replacement: '{{BASEURL}}/'
